@@ -5,6 +5,7 @@ import time
 import signal
 from pymongo import Connection
 from tumblr import TumblrClient
+import oauth2
 
 conn = Connection()
 coll = conn.db.users()
