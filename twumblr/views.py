@@ -1,3 +1,5 @@
+from tumblr.oauth import TumblrOAuthClient
+
 import json
 from pymongo import Connection
 
@@ -8,6 +10,11 @@ def obtain_oauth(request):
 #    fp.close()
 #    conn = Connection(dbloc)
 #    coll = conn.db.users
+
+    consumer_key = 'BmyWZMbAzcK9Y7mEQKTgf1JI4icFlXvfxxkfIzuG9nFFVJfg9Q'
+    consumer_secret = 'p5ohAI2hT7tSwjVCI0HA8oTpOYAvc3m6tIPAXJGNXkur6PgQdT'
+
+    tumblr_oauth = TumblrOAuthClient(consumer_key, consumer_secret)
 
     oauth_verifier = request.params["oauth_verifier"]
     access_token = tumblr_oauth.get_access_token(oauth_verifier)
