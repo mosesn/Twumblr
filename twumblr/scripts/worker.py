@@ -17,7 +17,7 @@ def sigterm_handler(signum, frame):
 
 def main():
     while True:
-        
+        """
         fp = open("/home/dotcloud/environment.json")
         dbloc = json.load(fp)["DOTCLOUD_DATA_MONGODB_URL"]
         fp.close()
@@ -39,6 +39,7 @@ def main():
                         tumble(lst[x]["text"], sn["token"])
             sn["status"] = lst[0]["text"]
             coll.save(sn)
+            """
         time.sleep(30)
 
 def tumble(stri, tumcli):
