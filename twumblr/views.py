@@ -29,6 +29,7 @@ def remove_twitter(request):
 
     handle = request.params["twitter"]
     coll.remove({"twitter":handle})
+    return {}
 
 def obtain_oauth(request):
     fp = open("/home/dotcloud/environment.json")
@@ -66,6 +67,8 @@ def obtain_oauth(request):
 #    return {"data":r.content}
 
     coll.insert({"key" : access_token.key, "secret" : access_token.secret, "twitter":session["twitter"], "hostname":hostname})
+
+    return {"data":"done"}
 
 #    return coll.find_one( {"key" : access_token.key, "secret" : access_token.secret})
 #    print "Access key:", access_token.key
