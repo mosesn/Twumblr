@@ -15,6 +15,9 @@ def sigterm_handler(signum, frame):
     print >> sys.stderr, "Kaboom Baby!"
     sys.exit(0)
 
+def tumble(stri, tumcli):
+    tumcli.create_post({"type":text, "body":stri})
+
 def main():
     while True:
         """
@@ -40,10 +43,7 @@ def main():
             sn["status"] = lst[0]["text"]
             coll.save(sn)
             """
-        time.sleep(30)
-
-def tumble(stri, tumcli):
-    tumcli.create_post({"type":text, "body":stri})
+        time.sleep(1)
 
 # Bind our callback to the SIGTERM signal and run the daemon:
 if __name__ == "__main__":
