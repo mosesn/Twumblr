@@ -46,7 +46,7 @@ def obtain_oauth(request):
     access_key = access_token.key
     access_secret = access_token.secret
     consumer = oauth2.Consumer(consumer_key, consumer_secret)
-    token = oauth2.Token(consumer_key, consumer_secret)
+    token = oauth2.Token(access_key, access_secret)
 
     client = oauth2.Client(consumer, token)
 
