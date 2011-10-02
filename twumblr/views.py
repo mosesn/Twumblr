@@ -52,7 +52,7 @@ def obtain_oauth(request):
 
     try:
         response, content = client.request("http://api.tumblr.com/v2/user/info", "POST", None)
-        return {"data":content}
+        return {"data":response}
     except Exception as e:
         return {"data":e}
 
