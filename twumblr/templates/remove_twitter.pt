@@ -1,9 +1,12 @@
-<html><head>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="test.css" />
     <title>
       
     </title>
   </head>
   <body>
-    I no longer wish to impress you. Enjoy this swagger free page.
+    <p>I no longer wish to impress you.</p>
+    <p>Enjoy this swagger free page.</p>
   </body>
 </html>

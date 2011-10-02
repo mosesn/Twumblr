@@ -1,7 +1,9 @@
 <html>
-  <head> <title> Oauthin'! </title> </head>
+  <head>
+    <link rel="stylesheet" type="text/css" href="test.css" />
+    <title> Oauthin'! </title> </head>
   <body>
-    You are signed up! Your new tweets will be tumbled soon!
+    <p>You are signed up! Your new tweets will be tumbled soon!</p>
   </body>
 
 </html>

@@ -71,6 +71,9 @@ def obtain_oauth(request):
 
     return {"data":"done"}
 
+def test(request):
+    return {}
+
 #    return coll.find_one( {"key" : access_token.key, "secret" : access_token.secret})
 #    print "Access key:", access_token.key
 #    print "Access Secret:", access_token.secret

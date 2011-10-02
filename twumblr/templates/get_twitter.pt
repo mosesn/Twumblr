@@ -1,17 +1,19 @@
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="test.css" />
     <title>
       twumblr!
     </title>
   </head>
   <body>
     <form method="GET" action="./gen_url">
-      <p>This will tumble your every tweet!</p> <p>Enter your twitter handle here:</p>
+      <h3>This will tumble your every tweet!</h3> 
+      <p>Enter your twitter handle here:</p>
       <input type="text" name="twitter" />
       <input type="submit" value="Sign up!" />
     </form> <br/>
     <form method="GET" action="./remove_twitter">
-      <p>Already signed up and want to stop tumblin' all your tweets?</p>
+      <h3>Already signed up and want to stop tumblin' all your tweets?</h3>
       <p>Submit your twitter handle here:</p>
       <input type="text" name="twitter" />
       <input type="submit" value="De-sign up!"/>

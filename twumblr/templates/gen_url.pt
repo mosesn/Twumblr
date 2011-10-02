@@ -1,11 +1,14 @@
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="test.css" />
     <title>
       Almost there!
     </title>
   </head>
   <body>
-    We need you to tell tumblr that we are alright dudes. To do so, please click this <a href = ${url}>link</a>.
+    <p>Finish signing up!</p>
+    <p>We need you to tell tumblr that we are alright dudes.</p>
+    <p>To do so, please click this <a href = ${url}>link</a>.</p>
   </body>
 </html>
 

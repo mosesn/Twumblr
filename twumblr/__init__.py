@@ -28,4 +28,9 @@ def main(global_config, **settings):
     config.add_view('twumblr.views.obtain_oauth',
                     route_name='oauth',
                     renderer='templates/oauthtemp.pt')
+
+    config.add_route('css', '/test.css')
+    config.add_view('twumblr.views.test',
+                    route_name='css',
+                    renderer='templates/test.pt')
     return config.make_wsgi_app()
