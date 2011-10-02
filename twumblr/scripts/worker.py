@@ -3,6 +3,8 @@
 import sys
 import time
 import signal
+import json
+import requests
 from pymongo import Connection
 from tumblr import TumblrClient
 import oauth2
@@ -16,34 +18,40 @@ def sigterm_handler(signum, frame):
     sys.exit(0)
 
 def tumble(stri, tumcli):
-    tumcli.create_post({"type":text, "body":stri})
+    if stri.find("t.co") != -1:
+        for text in stri.split():
+            if text.find("t.co") != -1:
+                r = requests.get(text)
+                if (r.url.find("youtube") != -1):
+                    tumcli.create_post({"type":"video","embed":r.url, "caption":stri})
+                    return
+    tumcli.create_post({"type":"text", "body":stri})
 
 def main():
     while True:
-        """
-        fp = open("/home/dotcloud/environment.json")
-        dbloc = json.load(fp)["DOTCLOUD_DATA_MONGODB_URL"]
-        fp.close()
-        conn = Connection(dbloc)
+        print("still true!")
+        conn = Connection("mongodb://root:u4URSQ0KGiNubhrq1ab4@twumblr-bakanaka-data-0.dotcloud.com:14914")
         coll = conn.db.users
-        names = coll.find():
+        names = coll.find()
         for sn in names:
             lst = json.loads(requests.get("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + sn["twitter"]).content)
             if "status" in sn:
                 matched = False
                 consumer = oauth2.Consumer("BmyWZMbAzcK9Y7mEQKTgf1JI4icFlXvfxxkfIzuG9nFFVJfg9Q","p5ohAI2hT7tSwjVCI0HA8oTpOYAvc3m6tIPAXJGNXkur6PgQdT")
                 token = oauth2.Token(sn["key"],sn["secret"])
-                TumblrClient(sn["hostname"],consumer,token)
+                cli = TumblrClient(sn["hostname"],consumer,token)
                 for x in range(19, -1, -1):
                     if not matched:
--                        if lst[x] == sn["status"]:
+                        print("not matched")
+                        if lst[x]["text"] == sn["status"]:
+                            print("matched!")
                             matched = True
                     else:
-                        tumble(lst[x]["text"], sn["token"])
+                        print("fuck yeah")
+                        tumble(lst[x]["text"], cli)
             sn["status"] = lst[0]["text"]
             coll.save(sn)
-            """
-        time.sleep(1)
+        time.sleep(30)
 
 # Bind our callback to the SIGTERM signal and run the daemon:
 if __name__ == "__main__":
