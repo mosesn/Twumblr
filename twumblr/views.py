@@ -50,11 +50,11 @@ def obtain_oauth(request):
 
     client = oauth2.Client(consumer, token)
 
-    try:
-        response, content = client.request("http://api.tumblr.com/v2/user/info", "POST", None)
-        return {"data":content}
-    except Exception as e:
-        return {"data":e}
+    response, content = client.request("http://api.tumblr.com/v2/user/info", "POST", None)
+    dicty = json.loads(content)
+    for blog in dicty["response"]["user"]["blogs"]:
+        if blog["primary"] == True:
+            hostname = blog["url"]
 
 #    return content
 
@@ -65,7 +65,8 @@ def obtain_oauth(request):
 #        return {"data":e}
 #    return {"data":r.content}
 
-#    coll.insert({"key" : access_token.key, "secret" : access_token.secret, "twitter":session["twitter"]})
+    coll.insert({"key" : access_token.key, "secret" : access_token.secret, "twitter":session["twitter"], "hostname":hostname})
+
 #    return coll.find_one( {"key" : access_token.key, "secret" : access_token.secret})
 #    print "Access key:", access_token.key
 #    print "Access Secret:", access_token.secret
