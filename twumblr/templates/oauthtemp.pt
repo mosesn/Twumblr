@@ -1,8 +1,7 @@
 <html>
   <head> <title> Oauthin'! </title> </head>
   <body>
-    problemsolved
-    ${data}
+    You are signed up! Your new tweets will be tumbled soon!
   </body>
 
 </html>

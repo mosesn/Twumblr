@@ -1,18 +1,18 @@
 <html>
   <head>
     <title>
-      gimme your twitter!
+      twumblr!
     </title>
   </head>
   <body>
     <form method="GET" action="./gen_url">
-      Twitter:
-      <input type="text" name="twitter"></input>
+      To begin tumblin' your every tweet enter your twitter handle here:
+      <input type="text" name="twitter">Sign up!</input>
       <input type="submit" />
-    </form>
+    </form> <br/>
     <form method="GET" action="./remove_twitter">
-      Remove:
-      <input type="text" name="twitter"></input>
+      If you have already signed up and wish to stop tumblin' all your tweets submit your twitter handle here:
+      <input type="text" name="twitter">De-sign up!</input>
       <input type="submit" />
     </form>
   </body>
