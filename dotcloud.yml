@@ -2,3 +2,5 @@ www:
   type: python
 data:
   type: mongodb
+worker:
+  type: python-worker
