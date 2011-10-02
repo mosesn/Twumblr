@@ -1,2 +1,3 @@
 def obtain_oauth(request):
-    return {"data" : request.params.items()}
+    return {"items": []}
+#    return {"items" : request.params.items()}
