@@ -24,7 +24,7 @@ def main():
         coll = conn.db.users
         names = coll.find():
         for sn in names:
-            lst = json.loads(requests.get("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=%s").content) %sn
+            lst = json.loads(requests.get("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + sn["twitter"]).content)
             if "status" in sn:
                 matched = False
                 consumer = oauth2.Consumer("BmyWZMbAzcK9Y7mEQKTgf1JI4icFlXvfxxkfIzuG9nFFVJfg9Q","p5ohAI2hT7tSwjVCI0HA8oTpOYAvc3m6tIPAXJGNXkur6PgQdT")
@@ -32,11 +32,12 @@ def main():
                 TumblrClient(sn["hostname"],consumer,token)
                 for x in range(19, -1, -1):
                     if not matched:
-                        if lst[x] == sn["status"]:
+-                        if lst[x] == sn["status"]:
                             matched = True
                     else:
                         tumble(lst[x]["text"], sn["token"])
             sn["status"] = lst[0]["text"]
+            coll.save(sn)
         time.sleep(30)
 
 def tumble(stri, tumcli):
