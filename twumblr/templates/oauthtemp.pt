@@ -1,7 +1,11 @@
 <html>
   <head> <title> Oauthin'! </title> </head>
-  <body>
-  problemsolved
-  </body>
+    <body>
+      problemsolved
+        ${key}
+          <br />
+            ${secret}
+              ${twitter}
+                </body>
 
-</html>
+                </html>
