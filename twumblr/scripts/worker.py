@@ -7,8 +7,8 @@ from pymongo import Connection
 from tumblr import TumblrClient
 import oauth2
 
-conn = Connection()
-coll = conn.db.users()
+#conn = Connection("mongodb://root:u4URSQ0KGiNubhrq1ab4@twumblr-bakanaka-data-0.dotcloud.com:14914")
+#coll = conn.db.users()
 
 # Callback called when you run `supervisorctl stop'
 def sigterm_handler(signum, frame):
