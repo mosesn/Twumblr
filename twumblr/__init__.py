@@ -14,5 +14,9 @@ def main(global_config, **settings):
     config.add_view('twumblr.views.my_view',
                     route_name='home',
                     renderer='templates/mytemplate.pt')
+    config.add_route('oauth', '/tumblr_auth')
+    config.add_view('twumblr.views.obtain_oauth',
+                    route_name='oauth',
+                    renderer='templates/mytemplate.pt')
     return config.make_wsgi_app()
 

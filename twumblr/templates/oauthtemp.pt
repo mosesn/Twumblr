@@ -1,0 +1,12 @@
+<html>
+  <head> <title> Oauthin'! </title> </head>
+  <body>
+    <div tal:repeat = "item items"> 
+      ${item[0]}
+      <br/>
+      ${item[1]}
+      <br/>
+    </div>
+  </body>
+
+</html>
