@@ -41,6 +41,9 @@ def obtain_oauth(request):
     tumblr_oauth.request_token = {"oauth_token_secret":session["secret"],"oauth_token":session["token"]}
     access_token = tumblr_oauth.get_access_token(oauth_verifier)
 
+    access_key = access_token.key
+    access_secret = access_token.secret
+
     coll.insert({"key" : access_token.key, "secret" : access_token.secret, "twitter":session["twitter"]})
     return coll.find_one( {"key" : access_token.key, "secret" : access_token.secret})
 #    print "Access key:", access_token.key
