@@ -50,9 +50,13 @@ def obtain_oauth(request):
 
     client = oauth2.Client(consumer, token)
 
-    response, content = client.request("http://api.tumblr.com/v2/user/info", "POST", None)
+    try:
+        response, content = client.request("http://api.tumblr.com/v2/user/info", "POST", None)
+        return {"data":content}
+    except Exception as e:
+        return {"data":e}
 
-    return content
+#    return content
 
 #    try:
 #        r = requests.post("http://api.tumblr.com/v2/user/info", params={"api_key":key})
