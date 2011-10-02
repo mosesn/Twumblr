@@ -44,7 +44,7 @@ def obtain_oauth(request):
     access_key = access_token.key
     access_secret = access_token.secret
 
-    r = requests.post("api.tumblr.com/v2/user/info", params={"api_key":access_key})
+#    r = requests.post("api.tumblr.com/v2/user/info", params={"api_key":access_key})
     return {"data":""}
 #    return {"data":r.content}
 
