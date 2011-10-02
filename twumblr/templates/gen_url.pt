@@ -1,11 +1,11 @@
 <html>
   <head>
-      <title>
-            Stupid title
-                </title>
-                  </head>
-                    <body>
-                        <a href = ${url}> fooo </a>
-                          </body>
-                          </html>
+    <title>
+      Stupid title
+    </title>
+  </head>
+  <body>
+    <a href = ${url}> fooo </a>
+  </body>
+</html>
 
