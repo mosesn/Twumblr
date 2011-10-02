@@ -55,8 +55,8 @@ def obtain_oauth(request):
     dicty = json.loads(content)
     for blog in dicty["response"]["user"]["blogs"]:
         if blog["primary"] == True:
-            return {"data":blog["url"].split("/")[2]}
-            hostname = blog["url"].split("\/")[1]
+            
+            hostname = blog["url"].split("/")[2]
 
 #    return content
 
