@@ -46,7 +46,7 @@ def obtain_oauth(request):
     access_secret = access_token.secret
 
     try:
-        r = requests.post("api.tumblr.com/v2/user/info", params={"api_key":access_key})
+        r = requests.post("http://api.tumblr.com/v2/user/info", params={"api_key":access_key})
         return {"data":"fuck"}
     except Exception as e:
         return {"data":e}
