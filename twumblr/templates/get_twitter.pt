@@ -7,13 +7,13 @@
   <body>
     <form method="GET" action="./gen_url">
       To begin tumblin' your every tweet enter your twitter handle here:
-      <input type="text" name="twitter" value = "Sign up!"></input>
-      <input type="submit" />
+      <input type="text" name="twitter" ></input>
+      <input type="submit" value = "Sign up!"/>
     </form> <br/>
     <form method="GET" action="./remove_twitter">
       If you have already signed up and wish to stop tumblin' all your tweets submit your twitter handle here:
-      <input type="text" name="twitter" value= "De-sign up!"></input>
-      <input type="submit" />
+      <input type="text" name="twitter" ></input>
+      <input type="submit" value= "De-sign up!"/>
     </form>
   </body>
 </html>
