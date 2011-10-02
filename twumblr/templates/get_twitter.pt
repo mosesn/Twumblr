@@ -1,0 +1,20 @@
+<html>
+  <head>
+      <title>
+            gimme your twitter!
+                </title>
+                  </head>
+                    <body>
+                        <form method="GET" action="./gen_url">
+                                 Twitter:
+                                          <input type="text" name="twitter"></input>
+                                                   <input type="submit" />
+                                                       </form>
+                                                           <form method="GET" action="./remove_twitter">
+                                                                    Remove:
+                                                                             <input type="text" name="twitter"></input>
+                                                                                      <input type="submit" />
+                                                                                          </form>
+                                                                                            </body>
+                                                                                            </html>
+
