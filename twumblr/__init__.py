@@ -17,6 +17,6 @@ def main(global_config, **settings):
     config.add_route('oauth', '/tumblr_auth')
     config.add_view('twumblr.views.obtain_oauth',
                     route_name='oauth',
-                    renderer='templates/mytemplate.pt')
+                    renderer='templates/oauthtemp.pt')
     return config.make_wsgi_app()
 
