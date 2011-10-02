@@ -2,10 +2,7 @@
   <head> <title> Oauthin'! </title> </head>
   <body>
     problemsolved
-    ${key}
-    <br />
-    ${secret}
-    ${twitter}
+    ${data}
   </body>
 
 </html>

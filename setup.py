@@ -11,6 +11,7 @@ requires = [
     'pyramid',
     'oauth2',
     'pymongo',
+    'requests',
     ]
 
 setup(name='twumblr',

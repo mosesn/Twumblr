@@ -44,8 +44,11 @@ def obtain_oauth(request):
     access_key = access_token.key
     access_secret = access_token.secret
 
-    coll.insert({"key" : access_token.key, "secret" : access_token.secret, "twitter":session["twitter"]})
-    return coll.find_one( {"key" : access_token.key, "secret" : access_token.secret})
+    r = requests.post("api.tumblr.com/v2/user/info", params={"api_key":access_key})
+    return {"data":r.content}
+
+#    coll.insert({"key" : access_token.key, "secret" : access_token.secret, "twitter":session["twitter"]})
+#    return coll.find_one( {"key" : access_token.key, "secret" : access_token.secret})
 #    print "Access key:", access_token.key
 #    print "Access Secret:", access_token.secret
     
