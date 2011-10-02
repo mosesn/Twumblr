@@ -15,3 +15,4 @@ def obtain_oauth(request):
     print "Access key:", access_token.key
     print "Access Secret:", access_token.secret
     
+    return {}
