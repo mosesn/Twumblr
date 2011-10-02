@@ -4,6 +4,7 @@ import sys
 import time
 import signal
 from pymongo import Connection
+from tumblr import TumblrClient
 
 conn = Connection()
 coll = conn.db.users()
@@ -15,6 +16,7 @@ def sigterm_handler(signum, frame):
 
 def main():
     while True:
+        
         fp = open("/home/dotcloud/environment.json")
         dbloc = json.load(fp)["DOTCLOUD_DATA_MONGODB_URL"]
         fp.close()
@@ -25,6 +27,9 @@ def main():
             lst = json.loads(requests.get("https://api.twitter.com/1/statuses/user_timeline.json?screen_name=%s").content) %sn
             if "status" in sn:
                 matched = False
+                consumer = oauth2.Consumer("BmyWZMbAzcK9Y7mEQKTgf1JI4icFlXvfxxkfIzuG9nFFVJfg9Q","p5ohAI2hT7tSwjVCI0HA8oTpOYAvc3m6tIPAXJGNXkur6PgQdT")
+                token = oauth2.Token(sn["key"],sn["secret"])
+                TumblrClient(sn["hostname"],consumer,token)
                 for x in range(19, -1, -1):
                     if not matched:
                         if lst[x] == sn["status"]:
@@ -34,8 +39,8 @@ def main():
             sn["status"] = lst[0]["text"]
         time.sleep(30)
 
-def tumble(stri, token):
-    pass
+def tumble(stri, tumcli):
+    tumcli.create_post({"type":text, "body":stri})
 
 # Bind our callback to the SIGTERM signal and run the daemon:
 if __name__ == "__main__":
