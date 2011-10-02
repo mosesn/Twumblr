@@ -33,4 +33,8 @@ def main(global_config, **settings):
     config.add_view('twumblr.views.test',
                     route_name='css',
                     renderer='templates/test.pt')
+
+    config.add_route('img', '/img.png')
+    config.add_view('twumblr.views.img',
+                    route_name='css')
     return config.make_wsgi_app()
