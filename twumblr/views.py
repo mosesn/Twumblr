@@ -1,5 +1,6 @@
 from tumblr.oauth import TumblrOAuthClient
 import json
+import oauth2
 from pymongo import Connection
 import requests
 
@@ -44,9 +45,10 @@ def obtain_oauth(request):
 
     access_key = access_token.key
     access_secret = access_token.secret
+    key = oauth2.Consumer(consumer_key, consumer_secret).key
 
     try:
-        r = requests.post("http://api.tumblr.com/v2/user/info", params={"api_key":access_key})
+        r = requests.post("http://api.tumblr.com/v2/user/info", params={"api_key":key})
         return {"data":r.content}
     except Exception as e:
         return {"data":e}
